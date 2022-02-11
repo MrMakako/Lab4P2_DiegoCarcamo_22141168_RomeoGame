@@ -1,0 +1,91 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package main.lab4p2_diegocarcamo_22141168_romeogame;
+
+import java.util.AbstractQueue;
+
+/**
+ *
+ * @author Diego Carcamo
+ * 
+ * 
+ 
+*/
+
+
+
+public abstract class Persona {
+    
+    
+    String Apellido;
+    
+    String nombre;
+    
+    int edad;
+    int PuntosVida;
+    
+    int PtsAtq;
+    
+    double tasaAtq;
+    
+    
+           
+
+    public Persona(String Apellido , String nombre,int edad,int PtsVida ) {
+        this.Apellido=Apellido;
+        this.nombre= nombre;
+        
+        
+        
+    }
+    
+    public String getApellido(){
+        return Apellido;
+    
+    
+    }
+    
+    public void recibirAtq(int Atq){
+        
+        PuntosVida-=PtsAtq;
+    
+    
+    }
+    
+    public int getVida(){
+    
+        return PuntosVida;
+    
+    }
+    
+    public double  Atacar(Persona p){
+       return PtsAtq + (PtsAtq*tasaAtq);
+       
+    
+    }
+    
+    public  void  Recibir(double Atq){
+        PuntosVida-=Atq;
+    }
+    public String getName(){
+        
+        return nombre;
+    
+    
+    }
+
+   public String toString(){
+       return nombre+"-";
+   
+   }
+    
+    
+    
+    
+    
+    
+    
+    
+}
