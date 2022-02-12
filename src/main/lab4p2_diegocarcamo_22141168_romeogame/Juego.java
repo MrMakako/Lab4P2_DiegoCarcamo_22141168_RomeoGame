@@ -33,18 +33,16 @@ public class Juego {
 
         Montesco.AddMiembros(new Agronomo("MONTESCO", "Edgar", 29, 200));
         Montesco.AddMiembros(new AldeanoHerrero("MONTESCO", "Maurice", 29, 400));
-        Montesco.AddMiembros(new Agronomo("MONTESCO","Fill", 49, 250));
+        Montesco.AddMiembros(new Agronomo("MONTESCO", "Fill", 49, 250));
         //Familia de juieta
-        
+
         Copuleto.AddMiembros(new AldeanoNormal("COPULETO", "Julieta", 20, 50));
         Copuleto.AddMiembros(new AldeanoExplosivo("COPULETO", "BOOM", 23, 200));
 
-        Familias.get(0).AddMiembros(new Agronomo("RAMIREZ", "Erminio", 29, 200) );
-        Familias.get(0).AddMiembros(new AldeanoHerrero("RAMIREZ", "Juanr", 29, 200) );
-        Familias.get(0).AddMiembros(new Agronomo("RAMIREZ", "pollo", 29, 200) );
-        
-        
-        
+        Familias.get(0).AddMiembros(new Agronomo("RAMIREZ", "Erminio", 29, 200));
+        Familias.get(0).AddMiembros(new AldeanoHerrero("RAMIREZ", "Juanr", 29, 200));
+        Familias.get(0).AddMiembros(new Agronomo("RAMIREZ", "pollo", 29, 200));
+
         //Crear Aldeanos
     }
 
@@ -78,7 +76,7 @@ public class Juego {
             case 4: {
 
                 Jugar();
-                
+
                 break;
 
             }
@@ -110,17 +108,23 @@ public class Juego {
     public void Jugar() {
         //Minetras allan no se alla derrotado o la lafmiala de julieta o la de romeo ;
         while (true) {
-            
+
             VerFamilias();
-             System.out.print("Elija el apellido");
-             
-             
+            System.out.println("Elija el apellido>>");
+            
+            
+
             String Apellido = lea.next();
             int index = BuscarFamilia(Apellido);
             if (index != -1) {
                 System.out.println("Empezando pelea");
-                Pelea(index);
-                
+                if (Pelea(index)) {
+                    System.out.println("Triunfastse");
+                    break;
+                } else {
+                    System.out.println("Perdiste");
+                    break;
+                }
 
             }
 
@@ -129,40 +133,52 @@ public class Juego {
     }
 
     public boolean Pelea(int index) {
-        int MiembrosAliados = Montesco.getMiembros().size();
-        
-        int counter = 0;
-        
-        String Fin = "";
-        for (int i = 0; i < Familias.get(index).getMiembros().size(); i++) {
-            while (Fin.equals("")) {
-                
-                System.out.println("Peleando");
+        //Primero
+        for (int a = 0; a < Montesco.getMiembros().size(); a++) {
+            String Fin = "";
+            for (int i = 0; i < Familias.get(index).getMiembros().size(); i++) {
+                if (Fin.equals("M")) {
+                    break;
+                }
+                Fin = "";
 
-                if (counter < MiembrosAliados) {
-                    
-                    
+                while (Fin.equals("")) {
 
-                     Fin = VS(Montesco.getMiembros().get(counter), Familias.get(index).getMiembros().get(i));
+                    System.out.println("Peleando");
+
+                    Fin = VS(Montesco.getMiembros().get(a), Familias.get(index).getMiembros().get(i));
 
                     if (Fin.equals("M")) {
-                        Montesco.MatarMiembro(i);
+                        
+                        if (Familias.get(index).getMiembros().size() < 2) {
+                            Montesco.MatarMiembro(a);
+                             return false;
+                         }
+
+                        
+
                     }
                     if (Fin.equals("E")) {
+                        
+                          if (Montesco.getMiembros().size() < 2) {
+                              
+                             Familias.get(a).MatarMiembro(i);
 
-                        Familias.get(counter).MatarMiembro(i);
+                            return true;
+
+                           }
+
+                       
+
                     }
 
-                }else{
-                    return false;
-                    
+                   
                 }
 
             }
-            counter++;
 
         }
-        
+
         return true;
 
     }
@@ -170,6 +186,7 @@ public class Juego {
     public String VS(Persona Montesco, Persona Enemiga) {
 
         if (Montesco.getVida() > 0) {
+            System.out.println(Montesco.toString() + "ataca" + Enemiga.toString());
             Enemiga.Recibir(Montesco.Atacar(Enemiga));
 
         } else {

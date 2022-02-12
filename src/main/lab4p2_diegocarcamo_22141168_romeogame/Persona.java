@@ -4,6 +4,7 @@
  */
 package main.lab4p2_diegocarcamo_22141168_romeogame;
 
+import java.lang.invoke.TypeDescriptor;
 import java.util.AbstractQueue;
 
 /**
@@ -30,12 +31,16 @@ public abstract class Persona {
     
     double tasaAtq;
     
+    String Tipo="";
+    
     
            
 
     public Persona(String Apellido , String nombre,int edad,int PtsVida ) {
         this.Apellido=Apellido;
         this.nombre= nombre;
+        this.PuntosVida=PtsVida;
+       
         
         
         
@@ -61,7 +66,9 @@ public abstract class Persona {
     }
     
     public double  Atacar(Persona p){
+       System.out.println(nombre +"de "+Apellido+" Esta atacando a "+ p.getName());
        return PtsAtq + (PtsAtq*tasaAtq);
+       
        
     
     }
@@ -72,12 +79,14 @@ public abstract class Persona {
     public String getName(){
         
         return nombre;
+        
+     
     
     
     }
 
    public String toString(){
-       return nombre+"-";
+       return "Tipo"+Tipo+"-Vida:"+PuntosVida+"Ataque"+PtsAtq+ nombre+"-";
    
    }
     

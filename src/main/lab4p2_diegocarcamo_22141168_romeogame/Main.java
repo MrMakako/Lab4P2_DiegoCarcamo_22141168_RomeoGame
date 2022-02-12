@@ -8,19 +8,17 @@ package main.lab4p2_diegocarcamo_22141168_romeogame;
  *
  * @author Diego Carcamo
  */
-public class AldeanoNormal extends Persona {
+public class Main {
     
     
-
-    public AldeanoNormal(String Apellido , String nombre,int edad,int PtsVida ) {
-        super( Apellido,nombre,edad,PtsVida);
-        PtsAtq=50;
+    public static void main(String args[]){
         
+        Juego jugar= new Juego();
+        jugar.menu();
         
-        
+    
+    
     }
-    
-    
     
     
     

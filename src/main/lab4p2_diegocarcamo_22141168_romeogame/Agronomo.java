@@ -13,36 +13,32 @@ public class Agronomo extends Persona{
     public Agronomo(String Apellido , String nombre,int edad,int PtsVida ) {
         super( Apellido,nombre,edad,PtsVida);
         PtsAtq=100;
-        
+        Tipo="Agronomo";
         
         
     }
 
     
-    public void Aatcar(Persona p) {
+    public double  Atacar(Persona p) {
         
         if(p instanceof  AldeanoNormal){
-            double Ataque= PtsAtq+(PtsAtq*0.1);
-            
-           p.Recibir(Ataque);
-            
-           
-            
+            tasaAtq=0.1;
         
         
+        }else if (p instanceof Pacifistas){
+        
+            tasaAtq=0.05;
         }
         
+        return super.Atacar(p);
         
         
         
         
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
    
-    public void Recibir() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
     
     
     

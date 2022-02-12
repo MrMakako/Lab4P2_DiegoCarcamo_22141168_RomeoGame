@@ -14,6 +14,7 @@ public class Pacifistas extends Persona{
         super(nombre, Apellido,edad,PtsVida);
         
         PtsAtq=0;
+        Tipo="Pacifista";
         
         
     }

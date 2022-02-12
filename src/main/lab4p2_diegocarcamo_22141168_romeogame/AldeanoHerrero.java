@@ -12,6 +12,7 @@ public class AldeanoHerrero extends Persona{
 
     public AldeanoHerrero(String Apellido , String nombre,int edad,int PtsVida ) {
         super( Apellido,nombre,edad,PtsVida);
+        Tipo="Super Granjero";
        
     }
     

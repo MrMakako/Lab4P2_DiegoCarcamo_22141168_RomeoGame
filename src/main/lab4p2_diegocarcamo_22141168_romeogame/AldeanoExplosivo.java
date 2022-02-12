@@ -15,6 +15,7 @@ public class AldeanoExplosivo extends Persona {
     public AldeanoExplosivo(String Apellido , String nombre,int edad,int PtsVida ) {  
         super( Apellido,nombre,edad,PtsVida);
         PtsAtq=250;
+        Tipo="Aldeano Exposivo";
         //con amigios incluidos xd
         
        
