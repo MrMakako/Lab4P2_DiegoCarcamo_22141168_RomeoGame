@@ -22,5 +22,21 @@ public class AldeanoExplosivo extends Persona {
     }
     
     
+    public double Atacar(Persona p){
+        
+        if(p instanceof AldeanoHerrero){
+            tasaAtq=0.05;
+        
+        }else if(p instanceof Agronomo){
+            tasaAtq= 0.15;
+        }
+        
+        return super.Atacar(p);
+        
+    
+    
+    }
+    
+    
     
 }

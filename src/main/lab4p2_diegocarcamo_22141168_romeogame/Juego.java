@@ -34,6 +34,7 @@ public class Juego {
         Montesco.AddMiembros(new Agronomo("MONTESCO", "Edgar", 29, 200));
         Montesco.AddMiembros(new AldeanoHerrero("MONTESCO", "Maurice", 29, 400));
         Montesco.AddMiembros(new Agronomo("MONTESCO", "Fill", 49, 250));
+        Montesco.AddMiembros(new SuperGranjero("MONTESCO", "Romeo", 29, 700));
         //Familia de juieta
 
         Copuleto.AddMiembros(new AldeanoNormal("COPULETO", "Julieta", 20, 50));
@@ -50,7 +51,7 @@ public class Juego {
         int option;
 
         do {
-            System.out.println("1-Anadir familia" + "\n2-Ver Familias" + "\n3-nAnadir Miembro a Familia" + "\n4-Crear Aldeano"
+            System.out.println("1-Ver Familias" + "\n2-Crear Familia" + "\n3-nAnadir Miembro a Familia" + "\n4-Crear Aldeano"
             );
 
             option = lea.nextInt();
@@ -60,17 +61,50 @@ public class Juego {
         } while (option != 5);
 
     }
+    
+    public void ListarFamilias(){
+    
+        for(Familia  fam:Familias){
+            
+            System.out.println(fam);
+        }
+    
+    }
 
     public void Opciones(int opciones) {
         switch (opciones) {
             case 1: {
+                
+                System.out.println("Listar Todas las Familias");
+                ListarFamilias();
 
             }
             case 2: {
+                System.out.println("Nombre:");
+                String nombre= lea.next().toUpperCase();
+                System.out.println("Apellido:");
+                String apellido= lea.next().toUpperCase();
+                if(BuscarFamilia(apellido)==-1){
+                       Familias.add(new Familia(apellido));
+                
+                }
+                
+                
+             
+                
+                
+                
 
             }
 
             case 3: {
+                System.out.println("Elije Familia para anadir Aldeano");
+                VerFamilias();
+                
+                
+                
+                
+                
 
             }
             case 4: {

@@ -66,7 +66,9 @@ public abstract class Persona {
     }
     
     public double  Atacar(Persona p){
-       System.out.println(nombre +"de "+Apellido+" Esta atacando a "+ p.getName());
+        
+        
+       System.out.println(nombre +"de "+Apellido+" Esta atacando a "+ p.getName()+"tasa: "+tasaAtq+">>Damage: PtsAtq " +(PtsAtq+(PtsAtq*tasaAtq)));
        return PtsAtq + (PtsAtq*tasaAtq);
        
        
